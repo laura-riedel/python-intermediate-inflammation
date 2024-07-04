@@ -43,3 +43,9 @@ jobs:
     - name: Test with PyTest
       run: |
         python3 -m pytest --cov=inflammation.models tests/test_models.py
+    
+    - name: Check style with Pylint
+      # we need to add --fail-under=X otherwise the builds will fail if we don’t get a ‘perfect’ score of 10
+      # --reports=y will give us a more detailed report of the code analysis
+      run: |
+        python3 -m pylint --fail-under=5 --reports=y inflammation
